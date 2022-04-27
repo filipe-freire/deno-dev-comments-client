@@ -5,17 +5,6 @@ interface DevComment {
   _id: string;
 }
 
-export function parseData(comment: string): string {
-  const parsedData = comment
-    .split("//")
-    .map((el) => el + "\n")
-    .join("//");
-
-  console.log("parsedData:", parsedData);
-
-  return parsedData;
-}
-
 export function useFetchComments() {
   const [comments, setComments] = useState<DevComment[] | null>(null);
   const [loading, setLoading] = useState(false);
@@ -23,10 +12,15 @@ export function useFetchComments() {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:8080/comments", {
-      method: "GET",
-      mode: "cors",
-    })
+    fetch(
+      import.meta.env.PROD
+        ? import.meta.env.VITE_SERVER_URL
+        : import.meta.env.VITE_LOCAL_SERVER_URL,
+      {
+        method: "GET",
+        mode: "cors",
+      }
+    )
       .then((res) => {
         if (res.ok) {
           return res.json();

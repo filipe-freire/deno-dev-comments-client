@@ -1,5 +1,10 @@
 import { CommentCard } from "./components";
 
 export default function App() {
-  return <CommentCard />;
+  return (
+    <>
+      <h1>Top Dev Comments</h1>
+      <CommentCard />;
+    </>
+  );
 }
