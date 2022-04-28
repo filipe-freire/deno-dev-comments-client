@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { render, screen } from "../../utils/test-utils";
-import { CommentCard } from ".";
+import { CommentsList } from ".";
 
 describe("CommentCard", () => {
   beforeEach(() => {
-    render(<CommentCard />);
+    render(<CommentsList />);
   });
 
   it("should render a comment card component", () => {

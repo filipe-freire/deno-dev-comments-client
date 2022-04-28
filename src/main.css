@@ -14,8 +14,7 @@
 /* ----------------------- GLOBAL STYLES ----------------------- */
 
 html {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  height: 100vh;
   background-color: hsl(235deg 46% 50%);
   color: whitesmoke;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -26,6 +25,13 @@ body {
   max-width: 1024px;
   margin: 0 auto;
   padding: 0 var(--sides-padding) var(--bottom-padding);
+  height: 100%;
+}
+
+#root {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
 }
 
 h1 {
@@ -52,4 +58,9 @@ a {
 .dev-comment > p {
   white-space: pre-wrap;
   line-height: 2;
+}
+
+.loader {
+  display: grid;
+  place-items: center;
 }
