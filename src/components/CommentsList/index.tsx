@@ -5,7 +5,11 @@ export function CommentsList() {
   const { comments, loading, error } = useFetchComments();
 
   if (loading) {
-    return <div className="loader">Loading...</div>;
+    return (
+      <div className="loaderWrapper">
+        <span className="loader" />
+      </div>
+    );
   }
 
   if (error)

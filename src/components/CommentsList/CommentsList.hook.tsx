@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
-
-interface DevComment {
-  comment: string;
-  _id: string;
-}
+import { getCommentsFromBE } from "../../services";
+import { DevComment } from "../../types";
 
 export function useFetchComments() {
   const [comments, setComments] = useState<DevComment[] | null>(null);
@@ -12,27 +9,14 @@ export function useFetchComments() {
 
   useEffect(() => {
     setLoading(true);
-    fetch(
-      import.meta.env.PROD
-        ? import.meta.env.VITE_SERVER_URL
-        : import.meta.env.VITE_LOCAL_SERVER_URL,
-      {
-        method: "GET",
-        mode: "cors",
-      }
-    )
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        throw res;
-      })
+
+    getCommentsFromBE()
       .then((data: DevComment[]) => {
         setComments(data);
       })
-      .catch((err) => {
-        console.error("error fetching data", error);
-        setError(err);
+      .catch((error) => {
+        console.log("Unnable to fetch comments: ", error);
+        setError(error);
       })
       .finally(() => {
         setLoading(false);
