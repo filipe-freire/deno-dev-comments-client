@@ -11,18 +11,18 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@types/react": "18.0.25",
-    "@types/react-dom": "18.0.8",
-    "@vitejs/plugin-react": "2.2.0",
-    "@vitest/ui": "0.24.5",
-    "jsdom": "20.0.2",
-    "msw": "0.47.4",
-    "typescript": "4.8.4",
-    "vite": "3.2.2",
-    "vitest": "0.24.5"
+    "@types/react": "18.3.5",
+    "@types/react-dom": "18.3.0",
+    "@vitejs/plugin-react": "4.3.1",
+    "@vitest/ui": "2.0.5",
+    "jsdom": "25.0.0",
+    "msw": "2.4.1",
+    "typescript": "5.5.4",
+    "vite": "5.4.2",
+    "vitest": "2.0.5"
   }
 }
